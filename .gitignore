@@ -1,0 +1,33 @@
+# ============================================
+# Wallom - Git Ignore Configuration
+# Project: Wallom (PowerShell Terminal Game)
+# Author: Kishan Pujari
+# License: MIT
+# ============================================
+
+# DATABASE / SAVE FILES
+database.json
+*.db.json
+*.save.json
+
+# POWERSELL / SYSTEM FILES
+*.ps1xml
+*.pssc
+*.psd1
+
+# WINDOWS / OS FILES
+Thumbs.db
+Desktop.ini
+
+# LOG / TEMP FILES
+*.log
+*.tmp
+
+# IDE / EDITORS
+.vscode/
+.idea/
+
+# BACKUP FILES
+*~
+*.bak
+*.backup
