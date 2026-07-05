@@ -33,7 +33,7 @@ $colorGreen       \/         \/        \/       \/$colorRed       \/         \/
     Write-Host $colorGreen
     Write-Host $logo
     Write-Host $colorReset
-    Write-Host "                $colorYellow Escape.$colorGreen Survive.$colorRed Repeat. $colorGray (v1.1.0)"
+    Write-Host "                $colorYellow Escape.$colorGreen Survive.$colorRed Repeat. $colorGray (v1.2.0)"
     Write-Host ""
 }
 

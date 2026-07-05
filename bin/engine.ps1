@@ -228,8 +228,8 @@ while ($true) {
         }
 
         default {
-
-            Write-Host "Invalid move"
+            Write-Host ""
+            Write-Host "${colorYellow}[ERROR]: Invalid move ${colorWhite}'$cmd'${colorReset}"
             Start-Sleep -Milliseconds 500
             continue
         }
@@ -290,14 +290,33 @@ while ($true) {
             Show-MapID
 
             Write-Host ""
-            Write-Host "ENEMY TRIGGERED A MINE!"
-            Write-Host "LEVEL COMPLETE!"
+            Write-Host "${colorGreen}[SUCCESS]: Enemy Triggered a ${colorPink}MINE! ${colorGreen}, You WIN${colorReset}"
             exit
         }
 
         # Normal movement
         $ex = $best.x
         $ey = $best.y
+
+        # Enemy caught player
+        if ($ex -eq $x -and $ey -eq $y) {
+
+            Clear-Host
+            & ".\bin\grid.ps1" `
+                -ox $x `
+                -oy $y `
+                -ex $ex `
+                -ey $ey `
+                -bombs $bombs `
+                -walls $walls `
+                -point $point
+
+            Show-MapID
+
+            Write-Host ""
+            Write-Host "${colorRed}[FAIL]: Enemy Caught you.${colorReset}"
+            exit
+        }
     }
 
     $db[$gameId] = @{
