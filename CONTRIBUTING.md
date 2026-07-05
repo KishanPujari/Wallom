@@ -72,7 +72,7 @@ bin/
 
 1. Clone the repository
 ```bash id="setup1"
-git clone https://github.com/your-username/wallom.git
+git clone https://github.com/KishanPujari/wallom.git
 ````
 
 2. Run the game

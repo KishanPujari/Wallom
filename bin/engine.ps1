@@ -18,7 +18,7 @@
  * @functions
  *              IsBlocked()           -> checks wall collision
  *              New-PointPosition()   -> generates collectible position
- *              Print-MapID()         -> prints deterministic map fingerprint
+ *              Show-MapID()         -> prints deterministic map fingerprint
 #>
 
 . ".\bin\bomb.ps1"
@@ -34,10 +34,6 @@ $db = Load-DB
 if ($null -eq $db) {
     $db = @{}
 }
-if (-not $db.ContainsKey($gameId)) {
-    $db[$gameId] = @{}
-}
-
 if (-not $db.ContainsKey($gameId)) {
     $db[$gameId] = @{}
 }
@@ -126,12 +122,12 @@ function New-PointPosition {
         $Walls.Contains($p) -or
         $p -eq $PlayerPos -or
         $p -eq $EnemyPos -or
-        (Get-BombAt -Bombs $Bombs -Pos $p) -ne $null
+        $null -ne (Get-BombAt -Bombs $Bombs -Pos $p)
     )
     return $p
 }
 
-function Print-MapID {
+function Show-MapID {
     $mapId = ($initialWalls | Where-Object { $_ -ne $null } | ForEach-Object { ([int]$_).ToString("D3") }) -join ""
     Write-Host "$colorWhite|${colorGray}$mapId$colorWhite|"
     Write-Host "$colorWhite+------------------------------------------------------+"
@@ -172,7 +168,7 @@ while ($true) {
     -bombs $bombs `
     -walls $walls `
     -point $point
-    Print-MapID
+    Show-MapID
 
     Write-Host ""
     Write-Host "${colorYellow}Players: ${colorBlue}O ${colorGray}(YOU) ${colorRed}X ${colorGray}(ENEMY)"
@@ -291,7 +287,7 @@ while ($true) {
                 -ey $ey `
                 -bombs $bombs `
                 -walls $walls
-            Print-MapID
+            Show-MapID
 
             Write-Host ""
             Write-Host "ENEMY TRIGGERED A MINE!"

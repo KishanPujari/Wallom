@@ -54,5 +54,5 @@ Write-Host "${colorGray}- Open-source community"
 Write-Host "${colorGray}- PowerShell runtime"
 Write-Host ""
 
-Write-Host "${colorCyan}Repository:${colorWhite} (Add your GitHub link here)"
+Write-Host "${colorCyan}Repository:${colorWhite} https://github.com/KishanPujari/wallom"
 Write-Host ""
