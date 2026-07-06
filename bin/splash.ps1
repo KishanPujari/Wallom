@@ -16,7 +16,7 @@
  * @functions
  *              Show-MainMenu()
  *              Show-InvalidInput()
- *              Return-ToMainMenu()
+ *              GoBackToMainMenu()
 #>
 
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
@@ -33,7 +33,7 @@ function Show-MainMenu {
     Write-Host ""
     Write-Host "${colorCyan}   ${colorYellow}[1]${colorWhite} Start Game                    ${colorReset}"
     Write-Host "${colorCyan}   ${colorYellow}[2]${colorWhite} How to Play                   ${colorReset}"
-    Write-Host "${colorCyan}   ${colorYellow}[3]${colorWhite} Settings ${colorYellow}(BETA)                      ${colorReset}"
+    Write-Host "${colorCyan}   ${colorYellow}[3]${colorWhite} Settings                      ${colorReset}"
     Write-Host "${colorCyan}   ${colorYellow}[4]${colorWhite} Credits                       ${colorReset}"
     Write-Host "${colorCyan}   ${colorYellow}[0]${colorWhite} Exit                          ${colorReset}"
     Write-Host ""
@@ -45,7 +45,7 @@ function Show-InvalidInput {
     }
 }
 
-function Return-ToMainMenu {
+function GoBackToMainMenu {
     Write-Host "${colorGray}Press any key to return to menu...${colorReset}"
     [void][System.Console]::ReadKey($true)
     Write-Host ""
@@ -74,20 +74,17 @@ while ($running) {
 
         "2" {
             ./bin/ui_help.ps1
-            Return-ToMainMenu
+            GoBackToMainMenu
         }
 
         "3" {
-            Clear-Host
-            Write-Host "${colorWhite}Settings menu coming soon.${colorReset}"
-            Write-Host ""
-
-            Return-ToMainMenu
+            ./bin/ui_settings.ps1
+            GoBackToMainMenu
         }
 
         "4" {
             ./bin/ui_credits.ps1
-            Return-ToMainMenu
+            GoBackToMainMenu
         }
 
         "0" {

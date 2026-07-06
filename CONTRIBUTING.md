@@ -44,7 +44,8 @@ bin/
 ├── db.ps1          # Persistence layer
 ├── colors.ps1      # UI theme system
 ├── splash.ps1      # Main menu controller
-└── ui_*.ps1        # UI screens (help, credits, logo)
+├── config.ps1      # Game configuration
+└── ui_*.ps1        # UI screens (help, credits, logo, settings)
 
 ````
 

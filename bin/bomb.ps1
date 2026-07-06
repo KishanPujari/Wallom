@@ -19,9 +19,11 @@
  *              Update-Bombs()   -> advances bomb timers & applies effects
 #>
 
+. ".\bin\config.ps1"
+
 # Mine rules
-$MAX_MINES = 5
-$MINE_LIFETIME = 8
+$MAX_MINES = $Global:Config.Bomb.MaxMines + 1
+$MINE_LIFETIME = $Global:Config.Bomb.MineLifetime + 3
 
 # Place a bomb
 function Add-Bomb {

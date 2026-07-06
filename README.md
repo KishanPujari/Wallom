@@ -44,6 +44,19 @@ The game is built as a **modular PowerShell engine**, simulating a mini game fra
 - 🎨 ANSI color-based terminal UI
 - 🗺 Procedural map generation
 - 🎮 Modular engine architecture
+- ⚙️ Settings system with persistent configuration (JSON-based)
+
+---
+
+## ⚙️ Settings System (NEW)
+
+Configure gameplay without editing code
+
+Adjustable:
+- Max Mines
+- Mine Lifetime
+
+Persistent across sessions (saved to config.json)
 
 ---
 
@@ -66,8 +79,8 @@ The game is built as a **modular PowerShell engine**, simulating a mini game fra
 
 - Collect **$** to increase score
 - Enemy dies if it steps on a mine
-- Max **5 active mines**
-- Mines expire after **5 turns**
+- Max mines configurable via settings (default: 5)
+- Mines expire after configurable via settings (default: 5)
 - Walls block movement
 - Objective: Eliminate enemy
 
@@ -122,6 +135,14 @@ Wallom uses a lightweight JSON-based persistence system:
 
 > Save file: `database.json`
 
+⚙️ Configuration System
+* Separate from game save data
+* Stored in config.json
+* Controls gameplay parameters like:
+  * Mine limits
+  * Mine lifetime
+* Editable via in-game settings menu
+
 ---
 
 ## 🛠 Tech Stack
@@ -166,6 +187,7 @@ Please read the contribution guidelines before submitting PRs:
 * 🎮 level system
 * 🗺 bigger maps with scrolling
 * 🎨 theme system (dark/light modes)
+* ⚙️ Expanded settings system (difficulty, grid size, AI tuning)
 
 ---
 
